@@ -1,0 +1,2 @@
+6/13/25:
+This project is not finished yet. As you can tell from the first few lines in the Program.cs file, this is made to run off a locally hosted server, which is not the end goal. I plan to get networking functional in the very near future (hopefully the next week or so as of writing this). After this, my final touch to this program is to get a version with a GUI working, which I'll use Windows Presentation Foundation (WPF) for. I plan to have that version done within the next month.
