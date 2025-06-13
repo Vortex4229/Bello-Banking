@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bello Banking", "Bello Banking\Bello Banking.csproj", "{275265C0-0C23-48BA-8A4C-46C91C21EF87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bello Banking Console Edition", "Bello Banking Console Edition\Bello Banking Console Edition.csproj", "{204AD5F6-FC1E-465A-B691-D68E02C655D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{275265C0-0C23-48BA-8A4C-46C91C21EF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275265C0-0C23-48BA-8A4C-46C91C21EF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275265C0-0C23-48BA-8A4C-46C91C21EF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275265C0-0C23-48BA-8A4C-46C91C21EF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204AD5F6-FC1E-465A-B691-D68E02C655D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204AD5F6-FC1E-465A-B691-D68E02C655D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204AD5F6-FC1E-465A-B691-D68E02C655D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204AD5F6-FC1E-465A-B691-D68E02C655D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
