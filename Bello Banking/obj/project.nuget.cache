@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KzgneDbRRn0=",
+  "dgSpecHash": "MXsBMym1E2A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pebrp\\RiderProjects\\Advanced Computer Projects\\Bello Banking\\Bello Banking\\Bello Banking.csproj",
+  "projectFilePath": "C:\\Users\\pebrp\\RiderProjects\\Bello-Banking\\Bello Banking\\Bello Banking.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pebrp\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\pebrp\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",

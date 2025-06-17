@@ -95,7 +95,6 @@ public static class RootMethods {
 				lastNameCmdReader.Close();
 
 				Console.WriteLine($"Login successful! Welcome {firstName} {lastName}!");
-				Console.ReadLine();
 			}
 		}
 		catch (MySqlException e) {

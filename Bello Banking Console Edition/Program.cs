@@ -3,7 +3,7 @@
 namespace Bello_Banking_Console_Edition;
 
 internal class Program {
-	private const string ConnectionKey = "server=localhost;port=3306;database=bello_banking;uid=remote_user;password=3306;";
+	private const string ConnectionKey = "server=10.0.0.37;port=3306;database=bello_banking;uid=remote_user;password=3306;";
 	private static readonly MySqlConnection Conn = new(ConnectionKey);
 	
 	private static void Main() {
@@ -55,6 +55,7 @@ internal class Program {
 					}
 
 					var (loginSuccess, currentUserId) = RootMethods.Login(Conn, loginUsername, loginPassword);
+					Console.ReadLine();
 
 					// post-login actions
 					if (loginSuccess)
