@@ -1,2 +1,5 @@
 6/13/25:
 This project is not finished yet. As you can tell from the first few lines in the Program.cs file, this is made to run off a locally hosted server, which is not the end goal. I plan to get networking functional in the very near future (hopefully the next week or so as of writing this). After this, my final touch to this program is to get a version with a GUI working, which I'll use Windows Presentation Foundation (WPF) for. I plan to have that version done within the next month.
+
+6/21/25:
+So as it turns out, you are NOT supposed to allow public remote access to your MySQL database for a multitude of security reasons (and it's suuuper slow). Therefore, I'll need to create a ASP.NET API on the host computer that the client will access remotely, and then the API will talk to the database. Doing this will require me to learn how to create an API and I'll need to completly restructure most of the console app, so bear with me for a bit here.
