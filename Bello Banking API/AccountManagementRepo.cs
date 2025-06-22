@@ -1,9 +1,11 @@
 ﻿using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace Bello_Banking_Console_Edition;
+namespace Bello_Banking_API;
 
-public static class AccountManagement {
+// TODO: Refactor AccountManagementRepo functions to return a value instead of printing to console.
+
+public static class AccountManagementRepo {
 	private const string CheckBalanceQuery = "SELECT balance FROM users WHERE id=@id";
 	private const string UpdateBalanceQuery = "UPDATE users SET balance=@balance WHERE id=@id";
 	

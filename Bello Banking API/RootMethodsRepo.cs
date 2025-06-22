@@ -3,7 +3,9 @@ using System.Data;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Bello_Banking_Console_Edition;
+namespace Bello_Banking_API;
+
+// TODO: Refactor RootMethodsRepo functions to return a value instead of printing to console.
 
 public static class RootMethods {
 	

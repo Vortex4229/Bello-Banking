@@ -1,4 +1,4 @@
-@Bello_Banking_API_HostAddress = http://localhost:5221
+@Bello_Banking_API_HostAddress = http://localhost:5242
 
 GET {{Bello_Banking_API_HostAddress}}/weatherforecast/
 Accept: application/json
