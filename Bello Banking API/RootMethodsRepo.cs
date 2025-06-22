@@ -17,19 +17,33 @@ public static class RootMethods {
 		var registrationQuery =
 			"INSERT INTO users(username, password, email, firstname, lastname, balance) values (@username, " +
 			"@password, @email, @firstname, @lastname, @balance)";
+		var usernameTakenQuery = "SELECT EXISTS (SELECT * FROM users WHERE username = @username) as user_exists";
+		
 		var registrationCmd = new MySqlCommand(registrationQuery, conn);
-		bool success = false;
+		var usernameTakenCmd = new  MySqlCommand(usernameTakenQuery, conn);
+		registrationCmd.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
+		registrationCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = PasswordEncryption(password);
+		registrationCmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+		registrationCmd.Parameters.Add("@firstname", MySqlDbType.VarChar).Value = firstName;
+		registrationCmd.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastName;
+		registrationCmd.Parameters.Add("@balance", MySqlDbType.Int64).Value = 2000;
+		usernameTakenCmd.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
+
+		var usernameTaken = false;
+		var success = false;
 
 		try {
-			registrationCmd.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
-			registrationCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = PasswordEncryption(password);
-			registrationCmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
-			registrationCmd.Parameters.Add("@firstname", MySqlDbType.VarChar).Value = firstName;
-			registrationCmd.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = lastName;
-			registrationCmd.Parameters.Add("@balance", MySqlDbType.Int64).Value = 2000;
 			conn.Open();
-			registrationCmd.ExecuteNonQuery();
-			success = true;
+			
+			var usernameTakenReader = usernameTakenCmd.ExecuteReader();
+			while (usernameTakenReader.Read())
+				usernameTaken = usernameTakenReader.GetInt64(0) == 1;
+			usernameTakenReader.Close();
+
+			if (!usernameTaken) {
+				registrationCmd.ExecuteNonQuery();
+				success = true;
+			}
 		}
 		catch (MySqlException e) {
 			Console.WriteLine(e.Message);
@@ -42,7 +56,6 @@ public static class RootMethods {
 	}
 	
 	public static (bool, ulong?) Login(MySqlConnection conn, string username, string password) {
-		
 		var accountIdQuery = "SELECT id FROM users WHERE username=@username AND password=@password";
 		var loginQuery =
 			"SELECT EXISTS (SELECT * FROM users WHERE username=@username AND password=@password) AS user_exists;";
@@ -59,8 +72,8 @@ public static class RootMethods {
 
 		try {
 			conn.Open();
+			
 			var loginCmdReader = loginCmd.ExecuteReader();
-
 			while (loginCmdReader.Read())
 				loginSuccess = loginCmdReader.GetInt64(0) == 1;
 			loginCmdReader.Close();
