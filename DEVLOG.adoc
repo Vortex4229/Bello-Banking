@@ -2,4 +2,10 @@
 This project is not finished yet. As you can tell from the first few lines in the Program.cs file, this is made to run off a locally hosted server, which is not the end goal. I plan to get networking functional in the very near future (hopefully the next week or so as of writing this). After this, my final touch to this program is to get a version with a GUI working, which I'll use Windows Presentation Foundation (WPF) for. I plan to have that version done within the next month.
 
 6/21/25:
-So as it turns out, you are NOT supposed to allow public remote access to your MySQL database for a multitude of security reasons (and it's suuuper slow). Therefore, I'll need to create a ASP.NET API on the host computer that the client will access remotely, and then the API will talk to the database. Doing this will require me to learn how to create an API and I'll need to completly restructure most of the console app, so bear with me for a bit here.
+So as it turns out, you are NOT supposed to allow public remote access to your MySQL database for a multitude of security reasons (and it's suuuper slow). Therefore, I'll need to create a ASP.NET API on the host computer that the client will access remotely, and then the API will talk to the database. Doing this will require me to learn how to create an API and I'll need to completely restructure most of the console app, so bear with me for a bit here.
+
+6/22/25:
+I refactored all the methods in the RootMethodsRepo.cs and AccountManagementRepo.cs files for use with the new API. When I made the API project file I drug these files over from the Bello Banking Console Edition folder, but some stuff needed to be changed as these methods were originally made for a console application. I had to get rid of all the Console.WriteLine() calls (except for the exception methods), and I had to give previously void functions a return type.
+
+6/22/25:
+The API is fully functional! I thought this would take much longer but fortunately ASP.NET Minimal APIs are really easy to create, and I have an amazing brother-in-law who works in software development and explained how some stuff works. The next step is implementing API calls in place of the old method calls in the Bello Banking Console Edition\Program.cs file.
