@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace Bello_Banking_API;
 
-public static class RootMethods {
+public static class RootMethodsRepo {
 	
 	public static string PasswordEncryption(string password) {
 		var data = Encoding.ASCII.GetBytes(password);

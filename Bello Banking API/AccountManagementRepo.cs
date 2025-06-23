@@ -12,7 +12,7 @@ public static class AccountManagementRepo {
 			"SELECT EXISTS (SELECT * FROM users WHERE password=@password AND id=@id) AS user_exists;";
 
 		var checkPasswordCmd = new MySqlCommand(verifyPasswordQuery, conn);
-		checkPasswordCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = RootMethods.PasswordEncryption(password!);
+		checkPasswordCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = RootMethodsRepo.PasswordEncryption(password!);
 		checkPasswordCmd.Parameters.Add("@id", MySqlDbType.Int64).Value = userId;
 
 		var passwordVerified = false;
@@ -181,7 +181,7 @@ public static class AccountManagementRepo {
 		var changePasswordQuery = "UPDATE users SET password=@password WHERE id=@id";
 
 		var changePasswordCmd = new MySqlCommand(changePasswordQuery, conn);
-		changePasswordCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = RootMethods.PasswordEncryption(newPassword!);
+		changePasswordCmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = RootMethodsRepo.PasswordEncryption(newPassword!);
 		changePasswordCmd.Parameters.Add("@id", MySqlDbType.Int64).Value = userId;
 
 		var passwordVerified = PasswordVerification(conn, userId, oldPassword);
