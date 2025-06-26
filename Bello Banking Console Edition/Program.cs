@@ -2,10 +2,11 @@
 
 namespace Bello_Banking_Console_Edition;
 
+// THIS FILE IS NOT CURRENTLY FUNCTIONAL (26 ERRORS) DUE TO MOVEMENT OF REPO FILES, WILL BE MADE OPERATIONAL ONCE API IS DEVELOPED.
+// TODO: Refactor program to call from the Bello Banking API once developed.
+
+
 internal class Program {
-	private const string ConnectionKey = "server=10.0.0.37;port=3306;database=bello_banking;uid=remote_user;password=3306;";
-	private static readonly MySqlConnection Conn = new(ConnectionKey);
-	
 	private static void Main() {
 
 		while (true) {
