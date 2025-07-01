@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bello Banking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe078959151a5ce05353fd590891a0fd03d8165f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec1f982c3b24ecfdf8049b4bd1f2dd23dad1d5cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bello Banking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bello Banking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

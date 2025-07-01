@@ -55,7 +55,7 @@ public static class RootMethodsRepo {
 		return success;
 	}
 	
-	public static (bool, ulong?) Login(MySqlConnection conn, string username, string password) {
+	public static ulong? Login(MySqlConnection conn, string username, string password) {
 		var accountIdQuery = "SELECT id FROM users WHERE username=@username AND password=@password";
 		var loginQuery =
 			"SELECT EXISTS (SELECT * FROM users WHERE username=@username AND password=@password) AS user_exists;";
@@ -69,7 +69,7 @@ public static class RootMethodsRepo {
 		
 		var loginSuccess = false;
 		ulong? accountId = null;
-
+		
 		try {
 			conn.Open();
 			
@@ -91,7 +91,7 @@ public static class RootMethodsRepo {
 		finally {
 			if (conn.State == ConnectionState.Open) conn.Close();
 		}
-
-		return (loginSuccess, accountId);
+		
+		return accountId;
 	}
 }

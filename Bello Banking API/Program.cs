@@ -19,48 +19,43 @@ string connectionString = builder.Configuration.GetConnectionString("belloBankin
 var conn = new MySqlConnection(connectionString);
 
 // root method API calls
-app.MapGet("/register/{username}/{password}/{email}/{firstName}/{lastName}", 
+app.MapGet("/api/register/{username}/{password}/{email}/{firstName}/{lastName}", 
     (string username, string password, string email, string firstName, string lastName) => 
         $"{RootMethodsRepo.Register(conn, username, password, email, firstName, lastName)}").WithName("Register");
 
-app.MapGet("/login/{username}/{password}", (string username, string password) => {
-    (bool loginSuccess, ulong? userId) = RootMethodsRepo.Login(conn, username, password);
-    var loginData = new Login(loginSuccess, userId);
-    return loginData;
-}).WithName("Login");
+app.MapGet("/api/login/{username}/{password}", (string username, string password) => 
+    $"{RootMethodsRepo.Login(conn, username, password)}").WithName("Login");
 
 // account management API calls
-app.MapGet("/getName/{userId}", (ulong? userId) => $"{AccountManagementRepo.GetName(conn, userId)}")
-    .WithName("GetName");
+app.MapGet("/api/getName/{userId}", (ulong userId) => $"{AccountManagementRepo.GetName(conn, userId)}")
+    .WithName("GetName");   
 
-app.MapGet("/checkBalance/{userId}", (ulong? userId) => $"{AccountManagementRepo.CheckBalance(conn, userId)}")
+app.MapGet("/api/checkBalance/{userId}", (ulong userId) => $"{AccountManagementRepo.CheckBalance(conn, userId)}")
     .WithName("CheckBalance");
 
-app.MapGet("/updateBalance/{userId}/{amount}/{type}", (ulong? userId, long? amount, byte type) =>
+app.MapGet("/api/updateBalance/{userId}/{amount}/{type}", (ulong userId, long amount, byte type) =>
     $"{AccountManagementRepo.UpdateBalance(conn, userId, amount, type)}").WithName("UpdateBalance");
 
-app.MapGet("/sendMoney/{username}/{amount}", (string? username, long? amount) =>
+app.MapGet("/api/sendMoney/{username}/{amount}", (string username, long amount) =>
     $"{AccountManagementRepo.SendMoney(conn, username, amount)}").WithName("SendMoney");
 
-app.MapGet("/changeUsername/{userId}/{newUsername}", (ulong? userId, string? newUsername) =>
+app.MapGet("/api/changeUsername/{userId}/{newUsername}", (ulong userId, string newUsername) =>
     $"{AccountManagementRepo.ChangeUsername(conn, userId, newUsername)}").WithName("ChangeUsername");
 
-app.MapGet("/changePassword/{userId}/{oldPassword}/{newPassword}",
-    (ulong? userId, string? oldPassword, string? newPassword) =>
+app.MapGet("/api/changePassword/{userId}/{oldPassword}/{newPassword}",
+    (ulong userId, string oldPassword, string newPassword) =>
         $"{AccountManagementRepo.ChangePassword(conn, userId, oldPassword, newPassword)}"
 ).WithName("ChangePassword");
 
-app.MapGet("/changeName/{userId}/{newFirstName}/{newLastName}",
-    (ulong? userId, string? newFirstName, string? newLastName) =>
+app.MapGet("/api/changeName/{userId}/{newFirstName}/{newLastName}",
+    (ulong userId, string newFirstName, string newLastName) =>
         $"{AccountManagementRepo.ChangeName(conn, userId, newFirstName, newLastName)}").WithName("ChangeName");
 
-app.MapGet("/changeEmail/{userId}/{newEmail}", (ulong? userId, string? newEmail) =>
+app.MapGet("/api/changeEmail/{userId}/{newEmail}", (ulong userId, string newEmail) =>
     $"{AccountManagementRepo.ChangeEmail(conn, userId, newEmail)}").WithName("ChangeEmail");
 
-app.MapGet("/deleteAccount/{userId}/{password}", (ulong? userId, string? password) =>
+app.MapGet("/api/deleteAccount/{userId}/{password}", (ulong userId, string password) =>
     $"{AccountManagementRepo.DeleteAccount(conn, userId, password)}").WithName("DeleteAccount");
 
 app.Run();
-
-record Login(bool LoginSuccess, ulong? UserId);
 
