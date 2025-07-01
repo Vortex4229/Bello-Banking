@@ -9,3 +9,6 @@ I refactored all the methods in the RootMethodsRepo.cs and AccountManagementRepo
 
 6/22/25:
 The API is fully functional! I thought this would take much longer but fortunately ASP.NET Minimal APIs are really easy to create, and I have an amazing brother-in-law who works in software development and explained how some stuff works. The next step is implementing API calls in place of the old method calls in the Bello Banking Console Edition\Program.cs file.
+
+6/30/25:
+The API implementation for the console edition is about two-thirds of the way complete! The registration, login, and half the user actions are all functional. The last piece before full local functionality will be getting the account management actions working, which should not be hard at all.
