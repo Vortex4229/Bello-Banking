@@ -7,28 +7,26 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment()) {
-    app.MapOpenApi();
-}
+if (app.Environment.IsDevelopment()) app.MapOpenApi();
 
 app.UseHttpsRedirection();
 
 // connection management
-string connectionString = builder.Configuration.GetConnectionString("belloBankingDB") ??
-                          throw new Exception("No connection string found");
+var connectionString = builder.Configuration.GetConnectionString("belloBankingDB") ??
+                       throw new Exception("No connection string found");
 var conn = new MySqlConnection(connectionString);
 
 // root method API calls
-app.MapGet("/api/register/{username}/{password}/{email}/{firstName}/{lastName}", 
-    (string username, string password, string email, string firstName, string lastName) => 
+app.MapGet("/api/register/{username}/{password}/{email}/{firstName}/{lastName}",
+    (string username, string password, string email, string firstName, string lastName) =>
         $"{RootMethodsRepo.Register(conn, username, password, email, firstName, lastName)}").WithName("Register");
 
-app.MapGet("/api/login/{username}/{password}", (string username, string password) => 
+app.MapGet("/api/login/{username}/{password}", (string username, string password) =>
     $"{RootMethodsRepo.Login(conn, username, password)}").WithName("Login");
 
 // account management API calls
 app.MapGet("/api/getName/{userId}", (ulong userId) => $"{AccountManagementRepo.GetName(conn, userId)}")
-    .WithName("GetName");   
+    .WithName("GetName");
 
 app.MapGet("/api/checkBalance/{userId}", (ulong userId) => $"{AccountManagementRepo.CheckBalance(conn, userId)}")
     .WithName("CheckBalance");
@@ -58,4 +56,3 @@ app.MapGet("/api/deleteAccount/{userId}/{password}", (ulong userId, string passw
     $"{AccountManagementRepo.DeleteAccount(conn, userId, password)}").WithName("DeleteAccount");
 
 app.Run();
-
