@@ -1,7 +1,4 @@
-﻿IMPORTANT NOTE: **NETWORKING IS NOT CURRENTLY FUNCTIONAL.**
-
-IMPORTANT NOTE 2: **Bello Banking Console Edition** is currently in development.
-This is a barebones console line version of the app that I'm creating before I move to develop the full edition with a GUI.
+*IMPORTANT NOTE:* Bello Banking Console Edition is the functional project. The Bello Banking project (which has a real user interface) is currently under development.
 
 Bello Banking was made to mimic apps like CashApp, where you can send money to other users and utilize it as a banking app.
 This project has a lot of history for me, as when I was first trying to get into programming four or so years ago I tried making a banking app as my first real project.
