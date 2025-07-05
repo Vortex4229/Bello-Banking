@@ -107,9 +107,11 @@ public static class AccountManagementRepo {
                 // 0 = withdrawal/send, 1 = deposit
                 case 0:
                     balance -= amount;
-                    updateBalanceCmd.Parameters.Add("@balance", MySqlDbType.VarChar).Value = balance;
-                    updateBalanceCmd.ExecuteNonQuery();
-                    success = true;
+                    if (balance >= 0) {
+                        updateBalanceCmd.Parameters.Add("@balance", MySqlDbType.VarChar).Value = balance;
+                        updateBalanceCmd.ExecuteNonQuery();
+                        success = true;
+                    }
                     break;
                 case 1:
                     balance += amount;
