@@ -27,3 +27,6 @@ The last piece before full local functionality will be getting the account manag
 
 7/1/25:
 The API implementation for the console edition is complete! The next step is getting the API and MySQL server hosted on Azure, which will hopefully mean full networking capability! This has taken much longer than I originally anticipated, but I'm happy the end is more in sight than ever before.
+
+7/5/25:
+The console edition is finally finished. I've successfully deployed the MySQL server and API to Microsoft Azure. The only real change to the code I made here was getting rid of the security bypass function that was necessary for the local host API to work. I'm very pleased with the final project, and now the only thing left to do is make the final version using WPF.

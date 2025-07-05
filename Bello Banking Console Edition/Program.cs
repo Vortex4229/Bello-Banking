@@ -297,5 +297,6 @@ internal static class Program {
                     break;
             }
         }
+        // ReSharper disable once FunctionNeverReturns
     }
 }
