@@ -1,8 +1,8 @@
-IMPORTANT NOTE: Bello Banking Console Edition is the functional project. The Bello Banking project that uses WPF is currently under development.
+IMPORTANT NOTE: This project is no longer functional as I don't have time to manage whether or not I go over the free limits on Azure. Feel free to check out the source code under Bello Banking Console Edition and Bello Banking API.
 
 Bello Banking was made to mimic apps like CashApp, where you can send money to other users and utilize it as a banking app.
 This project has a lot of history for me, as when I was first trying to get into programming four or so years ago I tried making a banking app as my first real project.
 Of course, that didn't go anywhere as I didn't know nearly enough about computer science back then, but now I was actually able to make it!
 
-This project has given me more experience in using C# to develop applications (instead of just games) and has helped me learn the basics of MySQL, ASP.NET, and Azure, and will help me learn the basics of WPF later down the line.
+This project has given me more experience in using C# to develop applications (instead of just games) and has helped me learn the basics of MySQL, ASP.NET, and Azure.
 I hope you enjoy checking it out!
