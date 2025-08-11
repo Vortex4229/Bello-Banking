@@ -30,3 +30,5 @@ The API implementation for the console edition is complete! The next step is get
 
 7/5/25:
 The console edition is finally finished. I've successfully deployed the MySQL server and API to Microsoft Azure. The only real change to the code I made here was getting rid of the security bypass function that was necessary for the local host API to work. I'm very pleased with the final project, and now the only thing left to do is make the final version using WPF.
+
+8/10/2025: Unfortunately, due to concern for my finances with Microsoft Azure, I will not be continuing this project and adding the UI. This is unfortunate, but I'm happy with how far I got, and I learned a lot through working on this project. The console edition and API source code is still up, however I have shut down my Azure subscription so the release is not functional. Thank you all for following along with this project.
